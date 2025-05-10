@@ -1,0 +1,1 @@
+{{ include "awg-mainaccess.component.spring-configmap" (dict "componentName" "web" "context" $) }}

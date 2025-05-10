@@ -1,0 +1,1 @@
+{{ include "awg-mainaccess.component.spring-deployment" (dict "componentName" "web" "context" $) }}

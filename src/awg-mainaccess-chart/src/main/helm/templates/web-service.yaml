@@ -1,0 +1,1 @@
+{{ include "awg-mainaccess.component.service" (dict "componentName" "web" "context" $) }}
