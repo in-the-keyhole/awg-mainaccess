@@ -1,11 +1,11 @@
-@import com.awginc.storemaster.web.IndexModel
+@import com.awginc.mainaccess.web.IndexModel
 @param IndexModel model
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>AWG Store Master</title>
+        <title>AWG Main Access</title>
         <base href="${model.basePath()}" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />

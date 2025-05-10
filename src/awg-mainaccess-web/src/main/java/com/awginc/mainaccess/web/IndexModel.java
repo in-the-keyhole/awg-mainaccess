@@ -1,4 +1,4 @@
-package com.awginc.v.web;
+package com.awginc.mainaccess.web;
 
 public record IndexModel(String basePath) {
 
