@@ -1,10 +1,15 @@
 name: awg-mainaccess
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ "main" ]
+    branches:
+    - main
+    - develop
   pull_request:
-    branches: [ "main" ]
+    branches:
+    - main
+    - develop
 
 jobs:
   build:
@@ -23,9 +28,22 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v3
+      with:
+        versionSpec: 5.x
+    - name: Execute GitVersion
+      uses: gittools/actions/gitversion/execute@v3
 
     - name: Build with Gradle Wrapper
       run: ./gradlew dist
+
+    - name: Upload Dist
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist
+        path: dist
 
   dependency-submission:
 
