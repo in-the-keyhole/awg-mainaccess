@@ -31,15 +31,16 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
+    - name: Setup .NET 9.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
       
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v3
-      with:
-        versionSpec: 5.x
-    - name: Execute GitVersion
-      uses: gittools/actions/gitversion/execute@v3
+      run: dotnet tool install --global GitVersion.Tool && ln -s `which dotnet-gitversion` /usr/local/bin/gitversion
 
     - name: Build with Gradle Wrapper
       run: ./gradlew dist
