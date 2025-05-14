@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.*;
 
 @Controller
-public class IndexController {
+public class ConfigController {
     
-    @GetMapping("/")
-    public String view(Model model) {
-        var contextPath = ServletUriComponentsBuilder.fromCurrentContextPath().path("/").build().toUriString();
-        model.addAttribute("model", new IndexModel(contextPath));
-        return "index";
+    @Value("${conf.mainaccess.api.uri}")
+    private String apiUri;
+
+    @GetMapping("/config.json")
+    public String config() {
+        return Map.ofEntries(
+            entry("api", Map.ofEntries(
+                entry("uri", apiUri)
+            )
+        ));
     }
 
 }

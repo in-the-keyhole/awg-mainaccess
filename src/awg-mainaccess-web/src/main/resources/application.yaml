@@ -11,6 +11,8 @@ management:
       web:
         exposure:
             include: '*'
+
 conf:
-  servicebus:
-    endpoint: ${CONF_SERVICEBUS_ENDPOINT}
+  mainaccess:
+    api:
+      uri:
