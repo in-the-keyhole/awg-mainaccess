@@ -1,0 +1,36 @@
+@use '_typography.module.scss';
+
+:global {
+    .MuiTouchRipple-root {
+        display: 'none' !important;
+    }
+}
+
+body {
+    margin: 0px;
+}
+
+:root {
+    --color-primary: #131f6b;
+    --color-secondary: #005292;
+    --color-tertiary: #0073be;
+    --color-text: #000;
+    --color-placeholder-text: #7e7c7c;
+    --color-base-gray: #808080;
+    --color-table-header: #eee;
+    --color-danger: #ee1c25;
+
+    --table-border: 1px solid rgba(224, 224, 224, 1);
+
+    --font-family-headers: 'Roboto Condensed', Sans-serif;
+    --font-family-base: 'Inter', sans-serif;
+    --font-size-sm: 12px;
+    --font-size-reg: 16px;
+    --font-size-lg: 20px;
+
+    --breakpoint-xs: 0px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+}

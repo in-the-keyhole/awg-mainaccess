@@ -1,0 +1,47 @@
+$md: 768px;
+$sm: 576px;
+
+.userMenu {
+    display: flex;
+    align-items: center;
+}
+
+.menuButton {
+    @media (max-width: $md) {
+        min-width: 0px !important;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+}
+
+.avatar {
+    display: none;
+    font-size: 1.5em;
+    color: var(--color-base-gray);
+    @media (min-width: $sm) {
+        display: flex;
+    }
+}
+
+.dropdownLabel {
+    display: none;
+    align-items: center;
+    gap: 0px;
+    @media (min-width: $sm) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.dropdownArrow {
+    font-size: 1.5em;
+}
+
+.kebab {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    @media (min-width: $sm) {
+        display: none;
+    }
+}

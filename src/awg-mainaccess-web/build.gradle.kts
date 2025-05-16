@@ -39,6 +39,8 @@ dependencies {
     implementation("gg.jte:jte-spring-boot-starter-3:3.2.1")
     implementation("gg.jte:jte:3.2.1")
     jteGenerate("gg.jte:jte-models:3.2.1")
+
+    implementation(project(":awg-mainaccess-web-ui"))
 }
 
 jte {
@@ -50,25 +52,6 @@ jte {
 tasks.withType<com.google.cloud.tools.jib.gradle.JibTask>().configureEach {
     notCompatibleWithConfigurationCache("because https://github.com/GoogleContainerTools/jib/issues/3132")
 }
-
-tasks.withType<ProcessResources>() {
-    dependsOn(":awg-mainaccess-web-ui")
-    from(project(":awg-mainaccess-web-ui").projectDir.resolve("src/main/resources")) {
-        into("static")
-    }
-    from(project(":awg-mainaccess-web-ui").buildDir.resolve("libs/index.js"))  {
-        into("static")
-    }
-}
-
-// tasks.register<Copy>("copyStatic") {
-//     from("${project.projectDir}/../../../awg-monorepo/dist/apps/main-access")
-//     into("${project.buildDir}/resources/main/static")
-// }
-
-// tasks.withType<JavaCompile> {
-//     dependsOn("copyStatic")
-// }
 
 tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
     args("--spring.profiles.active=local")

@@ -1,0 +1,73 @@
+@use '@awg/web-ui-styles/_typography.module.scss' as typography;
+
+$md: var(--breakpoint-md);
+$lg: var(--brekapoint-lg);
+
+@mixin padding {
+    padding: 10px;
+
+    @media (min-width: $md) {
+        padding: 50px 50px;
+    }
+    @media (min-width: $lg) {
+        padding: 50px 100px;
+    }
+}
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    .content {
+        padding-top: 48px;
+        justify-self: center;
+        justify-content: center;
+        align-self: center;
+        max-width: 90%;
+    }
+
+    .appListingContainer {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        padding: 24px;
+        border-radius: 8px;
+        background-color: whitesmoke !important;
+        gap: 8px;
+    }
+
+    .appListing {
+        display: flex;
+        direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .cardLink {
+        width: 200px;
+        cursor: 'pointer'; // Show pointer cursor on hover
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease'; // Smooth transition
+        &:hover {
+            :global {
+                .MuiCard-root {
+                    .MuiTypography-root {
+                        font-weight: 600; /* Ensure this takes precedence */
+                    }
+                }
+            }
+        }
+    }
+    .appCard {
+        display: flex;
+        width: 200px;
+        justify-content: center;
+    }
+
+    .cardContent {
+        margin: auto;
+        padding: 16px !important;
+    }
+}

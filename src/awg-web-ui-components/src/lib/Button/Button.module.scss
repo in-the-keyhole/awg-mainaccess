@@ -1,0 +1,15 @@
+@use '@awg/web-ui-styles/_typography.module.scss' as typography;
+
+.button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    border: 1px solid var(--color-base-gray);
+    background: rgba(217, 217, 217, 0);
+
+    &.link {
+        text-decoration: none;
+        color: var(--color-text);
+        @include typography.p-regular;
+    }
+}

@@ -1,5 +1,7 @@
 package com.awginc.mainaccess.web;
 
+import java.util.*;
+
 import jakarta.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.*;
@@ -16,12 +18,12 @@ public class ConfigController {
     private String apiUri;
 
     @GetMapping("/config.json")
-    public String config() {
+    public Map<String, Object> config() {
         return Map.ofEntries(
-            entry("api", Map.ofEntries(
-                entry("uri", apiUri)
-            )
-        ));
+            Map.entry("api", Map.ofEntries(
+                Map.entry("uri", apiUri)
+            ))
+        );
     }
 
 }

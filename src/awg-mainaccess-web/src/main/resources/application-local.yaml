@@ -1,4 +1,5 @@
 server:
+  port: 47740
   error:
     whitelabel:
       enabled: false

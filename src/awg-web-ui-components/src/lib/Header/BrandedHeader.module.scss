@@ -1,0 +1,81 @@
+@use '@awg/web-ui-styles/_typography.module.scss' as typography;
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid var(--color-tertiary);
+    transition: height 0.3s ease, width 0.3s ease;
+    min-height: 65px;
+
+    @media (min-width: $md) {
+        min-height: 85px;
+        border-bottom: 4px solid var(--color-tertiary);
+    }
+    @media (min-width: $lg) {
+        margin-bottom: 30px;
+    }
+}
+
+.toolbar {
+    display: flex;
+    position: relative;
+    transition: height 0.3s ease, width 0.3s ease;
+    margin: auto 0px;
+    justify-content: center;
+    min-width: 300px !important;
+
+    @media (min-width: $md) {
+        min-height: 100px;
+    }
+    @media (min-width: $lg) {
+        height: 110px;
+    }
+}
+
+.logo {
+    height: 52px;
+    width: 52px;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    transition: height 0.3s ease, width 0.3s ease;
+    @media (min-width: $sm) {
+        left: 16px;
+    }
+    @media (min-width: $md) {
+        left: 36px;
+        height: 72px;
+        width: 72px;
+    }
+
+    @media (min-width: $lg) {
+        left: 48px;
+        height: 120px;
+        width: 120px;
+        top: 30px;
+    }
+}
+
+.title {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.875rem !important;
+    @media (min-width: $md) {
+        font-size: 2.75rem !important;
+    }
+}
+
+.menu {
+    display: flex;
+    position: absolute;
+    right: 8px;
+    top: 5;
+    @media (min-width: $lg) {
+        top: 16px;
+    }
+}
