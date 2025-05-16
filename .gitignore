@@ -39,9 +39,9 @@ build/
 .gradle/
 .kotlin/
 
+### JavaScript related ###
 .nx/installation
 .nx/cache
 .nx/workspace-data
-
 node_modules/
 dist/
