@@ -1,8 +1,8 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { cjsInterop } from 'vite-plugin-cjs-interop';
 
-export default defineConfig(() => ({
-    base: '/landing',
+export default defineConfig({
     root: __dirname,
     server: {
         port: 4200,
@@ -15,8 +15,17 @@ export default defineConfig(() => ({
     },
     plugins: [
         react(), 
+        cjsInterop({
+            dependencies: [
+                '@emotion/styled/base',
+                '@emotion/*',
+            ],
+        }),
     ],
     build: {
+        target: "es2020",
+        minify: false,
+        sourcemap: true,
         emptyOutDir: true,
         reportCompressedSize: true,
         commonjsOptions: {
@@ -44,4 +53,4 @@ export default defineConfig(() => ({
             provider: 'v8' as const,
         },
     },
-}));
+});

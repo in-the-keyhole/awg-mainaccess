@@ -14,11 +14,11 @@ public final class JteindexGenerated {
 			jteOutput.setContext("base", null);
 			jteOutput.writeContent("\"");
 		}
-		jteOutput.writeContent(" />\r\n\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n        <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.png\" />\r\n        <link rel=\"stylesheet\" crossorigin href=\"assets/index.css?v=");
+		jteOutput.writeContent(" />\r\n\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n        <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.png\" />\r\n        <link rel=\"stylesheet\" crossorigin href=\"index.css?v=");
 		jteOutput.setContext("link", "href");
 		jteOutput.writeUserContent(model.version());
 		jteOutput.setContext("link", null);
-		jteOutput.writeContent("\">\r\n        <script type=\"module\" crossorigin src=\"assets/index.js?v=");
+		jteOutput.writeContent("\">\r\n        <script type=\"module\" crossorigin src=\"index.js?v=");
 		jteOutput.setContext("script", "src");
 		jteOutput.writeUserContent(model.version());
 		jteOutput.setContext("script", null);
