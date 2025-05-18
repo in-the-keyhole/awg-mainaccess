@@ -1,10 +1,10 @@
 import { Stack } from '@mui/material';
-import ForbiddenImage from '../assets/401.svg?react';
+import NotFoundImage from '../assets/404.svg?react';
 
-export const Forbidden = () => {
+export const NotFound = () => {
     return (
         <Stack alignItems="center" justifyContent="center" spacing={4} sx={{ mt: 4 }}>
-            <ForbiddenImage height="400" alt="Forbidden" />
+            <NotFoundImage height="400" alt="Not Found" />
         </Stack>
     );
 };

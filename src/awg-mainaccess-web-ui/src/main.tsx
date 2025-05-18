@@ -12,6 +12,7 @@ import { ConfigProvider, type ConfigContextType, useConfig } from './config/Conf
 import App from './App/App';
 import { Forbidden } from './Pages/Forbidden';
 import { Unauthorized } from './Pages/Unauthorized';
+import { NotFound } from './Pages/NotFound';
 
 const Body = ({
     config,
@@ -25,6 +26,11 @@ const Body = ({
             <Route index element={
                 <ProtectedRoute forbidden={<Forbidden />} unauthorized={<Unauthorized />}>
                     <App />
+                </ProtectedRoute>
+            } />
+            <Route path="*" element={
+                <ProtectedRoute forbidden={<Forbidden />} unauthorized={<Unauthorized />}>
+                    <NotFound />
                 </ProtectedRoute>
             } />
         </Routes>
