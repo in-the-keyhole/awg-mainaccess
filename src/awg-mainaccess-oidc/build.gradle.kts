@@ -28,11 +28,7 @@ jib {
 dependencies {
     implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
     implementation("org.springframework.boot:spring-boot-starter-actuator:3.4.5")
-    implementation("org.springframework.boot:spring-boot-starter-web:3.4.5") {
-        exclude("org.springframework.boot", "spring-boot-starter-tomcat")
-    }
-    implementation("org.springframework.boot:spring-boot-starter-jetty")
-    implementation("org.springframework.boot:spring-boot-starter-security:3.4.5");
+    implementation("org.springframework.boot:spring-boot-starter-security:3.4.5")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server:3.4.5")
 }
 

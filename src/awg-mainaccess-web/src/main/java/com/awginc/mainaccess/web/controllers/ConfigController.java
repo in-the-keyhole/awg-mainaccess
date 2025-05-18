@@ -7,6 +7,9 @@ import com.awginc.mainaccess.web.models.OidcAuthConfigModel;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Delivers configuration information to the React application.
+ */
 @RestController
 public class ConfigController {
     

@@ -2,6 +2,7 @@ export { AuthProvider } from './lib/auth2/AuthContext';
 export { useAuth } from './lib/auth2/AuthContext';
 export { type OidcAuthProviderConfig } from './lib/auth2/AuthContext';
 export { type MsalAuthProviderConfig } from './lib/auth2/AuthContext';
+export { ProtectedRoute } from './lib/auth2/ProtectedRoute';
 // export { withAuthGuard } from './lib/auth/withAuthGuard';
 export type { NavigationDestination } from './lib/Breadcrumbs/Breadcrumbs';
 export { AwgBreadcrumbs } from './lib/Breadcrumbs/Breadcrumbs';

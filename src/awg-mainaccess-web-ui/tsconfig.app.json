@@ -20,7 +20,7 @@
         "noUncheckedSideEffectImports": true
     },
     "exclude": [
-        "jest.config.ts",
+       "jest.config.ts",
         "**/*.spec.ts",
         "**/*.test.ts",
         "**/*.spec.tsx",

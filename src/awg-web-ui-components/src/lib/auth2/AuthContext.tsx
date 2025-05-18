@@ -45,15 +45,17 @@ type AuthProviderProps = {
     children: React.ReactNode;
     oidc: OidcAuthProviderConfig;
     msal: MsalAuthProviderConfig;
+    baseUri: string;
 };
 
 /**
  * Required configuration values for the OidcAuthProvider.
  */
 export type OidcAuthProviderConfig = {
-    authority: string,
-    client_id: string,
-    redirect_uri: string,
+    authority: string;
+    clientId: string;
+    responseType: string;
+    defaultScopes: string[];
 }
 
 /**
@@ -78,7 +80,7 @@ export function useAuth() {
 export function AuthProvider(props: AuthProviderProps) {
     if (props.oidc) {
         return(
-            <OidcAuthProvider config={props.oidc}>
+            <OidcAuthProvider config={props.oidc} baseUri={props.baseUri}>
                 {props.children}
             </OidcAuthProvider>
         );
@@ -101,6 +103,7 @@ export function AuthProvider(props: AuthProviderProps) {
 type OidcAuthProviderProps = {
     children: React.ReactNode;
     config: OidcAuthProviderConfig;
+    baseUri: string;
 }
 
 /**
@@ -110,7 +113,14 @@ type OidcAuthProviderProps = {
  */
 function OidcAuthProvider(props: OidcAuthProviderProps) {
     return (
-        <ReactOidcAuthProvider authority={props.config.authority} client_id={props.config.client_id}>
+        <ReactOidcAuthProvider
+            authority={props.config.authority}
+            client_id={props.config.clientId}
+            redirect_uri={props.baseUri}
+            silent_redirect_uri={props.baseUri}
+            response_type={props.config.responseType}
+            scope={['openid', 'profile', 'email'].concat(props.config.defaultScopes ?? []).join(' ')}
+            automaticSilentRenew={true}>
             <OidcAuthProviderImpl {...props}>
                 {props.children}
             </OidcAuthProviderImpl>

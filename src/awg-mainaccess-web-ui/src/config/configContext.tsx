@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { type OidcAuthProviderConfig, type MsalAuthProviderConfig } from '@awg/web-ui-components';
 
-type ConfigContextType = {
+export type ConfigContextType = {
     auth: {
         oidc: OidcAuthProviderConfig;
         msal: MsalAuthProviderConfig;

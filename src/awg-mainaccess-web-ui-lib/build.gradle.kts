@@ -32,6 +32,7 @@ val buildTask = tasks.register<NpmTask>("npmBuild") {
     dependsOn(":awg-web-services:npmBuild");
 
     args.set(listOf("run", "build"))
+    inputs.files("../../tsconfig.base.json")
     inputs.files("package.json", "package-lock.json", "tsconfig.json", "tsconfig.app.json", "vite.config.ts")
     inputs.files(fileTree("src"))
     inputs.files(fileTree("public"))

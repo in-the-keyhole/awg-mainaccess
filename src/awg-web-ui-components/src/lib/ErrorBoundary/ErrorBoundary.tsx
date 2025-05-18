@@ -1,4 +1,4 @@
-import { useRouteError } from 'react-router-dom';
+import { useRouteError } from 'react-router';
 import { Logger } from '@awg/web-services';
 
 export function ErrorBoundary(logger: Logger) {

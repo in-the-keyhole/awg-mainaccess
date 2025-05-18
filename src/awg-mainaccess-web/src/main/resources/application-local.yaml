@@ -10,5 +10,7 @@ gg:
 
 conf:
   mainaccess:
-    api:
-      uri: http://localhost:47741/
+    auth:
+      oidc:
+        authority: http://http://localhost:47741/
+        clientId: awg-mainaccess-web
