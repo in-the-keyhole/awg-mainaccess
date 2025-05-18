@@ -3,10 +3,6 @@
     "compilerOptions": {
         "outDir": "dist/out-tsc",
         "jsx": "react-jsx",
-        "allowJs": false,
-        "esModuleInterop": false,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
         "types": [
             "vitest/importMeta"
         ]

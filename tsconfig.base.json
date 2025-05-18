@@ -12,7 +12,11 @@
         "lib": ["es2020", "dom"],
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "allowJs": false,
+        "esModuleInterop": false,
+        "allowSyntheticDefaultImports": true,
+        "strict": true
     },
     "exclude": [
         "node_modules", 
