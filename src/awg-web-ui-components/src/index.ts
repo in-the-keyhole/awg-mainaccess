@@ -1,6 +1,8 @@
-export { AuthContext, AuthProvider } from './lib/auth/authContext';
-export { useAuth } from './lib/auth/authContext';
-export { withAuthGuard } from './lib/auth/withAuthGuard';
+export { AuthProvider } from './lib/auth2/AuthContext';
+export { useAuth } from './lib/auth2/AuthContext';
+export { type OidcAuthProviderConfig } from './lib/auth2/AuthContext';
+export { type MsalAuthProviderConfig } from './lib/auth2/AuthContext';
+// export { withAuthGuard } from './lib/auth/withAuthGuard';
 export type { NavigationDestination } from './lib/Breadcrumbs/Breadcrumbs';
 export { AwgBreadcrumbs } from './lib/Breadcrumbs/Breadcrumbs';
 export { AwgButton } from './lib/Button/Button';
@@ -29,3 +31,4 @@ export { useSnackbar } from './lib/Snackbar/useSnackbar';
 export { AwgSubTabPanel } from './lib/tabs/SubTabPanel';
 export { AwgTabPanel } from './lib/tabs/TabPanel';
 export { useUnsavedChangesBlocker } from './lib/unsaved-changes/useUnsavedChangesBlocker';
+export { Loading } from './lib/loading/Loading';

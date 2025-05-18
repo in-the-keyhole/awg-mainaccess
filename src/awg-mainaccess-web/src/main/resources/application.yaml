@@ -14,5 +14,7 @@ management:
 
 conf:
   mainaccess:
-    api:
-      uri:
+    auth:
+      oidc:
+        authority: foo
+        clientId: client_id

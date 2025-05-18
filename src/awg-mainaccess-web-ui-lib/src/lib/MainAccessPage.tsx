@@ -14,11 +14,14 @@ const applications = [
 ];
 
 export function MainAccessPage() {
-    const { logout, user } = useAuth();
+    const auth = useAuth();
+    if (!auth) {
+        throw new Error("Missing auth context.");
+    }
 
     return (
         <div className={styles['main-page']}>
-            <AwgBrandedHeader title="AWG Main Access" onLogout={logout} userName={user?.name ?? ''} />
+            <AwgBrandedHeader title="AWG Main Access" onLogout={auth.signout} userName={auth.user?.name ?? ''} />
             <Box className={styles.content}>
                 <Typography variant="h4" component="h2" align="left" gutterBottom>
                     Applications
