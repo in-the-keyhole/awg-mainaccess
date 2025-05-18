@@ -1,19 +1,21 @@
-import { Navigate } from "react-router";
 import { useAuth } from "./AuthContext";
 
 type ProtectedRouteProps = {
     redirectPath?: string;
+    unauthorized?: React.ReactNode;
+    forbidden?: React.ReactNode;
     children: React.ReactNode;
 };
 
 export const ProtectedRoute = ({
-    redirectPath = '/',
+    unauthorized,
+    forbidden,
     children
 }: ProtectedRouteProps) => {
     const auth = useAuth();
     if (auth?.isAuthenticated ?? false) {
         return children;
     } else {
-        return <Navigate to={redirectPath} replace />;
+        return unauthorized;
     }
 };

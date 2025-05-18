@@ -46,5 +46,7 @@ build/
 .nx/installation
 .nx/cache
 .nx/workspace-data
+.yarn/
+npm-debug.log
 node_modules/
 dist/

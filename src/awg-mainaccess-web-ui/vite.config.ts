@@ -1,17 +1,19 @@
 /// <reference types='vitest' />
-import { resolve } from 'node:path'
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import svgr from 'vite-plugin-svgr' 
 import sourcemaps from 'rollup-plugin-sourcemaps2';
 
 export default defineConfig({
     root: __dirname,
     plugins: [
-        react()
+        react(),
+        svgr()
     ],
     resolve: {
         alias: {
-            "@mui/styled-engine": resolve(__dirname, "node_modules/@mui/styled-engine"),
+            "@emotion/styled": resolve(__dirname, "../../node_modules/@emotion/styled"),
         }
     },
     build: {

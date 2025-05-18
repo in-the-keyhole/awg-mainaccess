@@ -23,5 +23,5 @@
         "src/**/*.jsx", 
         "src/**/*.ts",
         "src/**/*.tsx"
-    ]
+, "../awg-mainaccess-web-ui/src/Pages/ForbiddenPage.tsx"    ]
 }

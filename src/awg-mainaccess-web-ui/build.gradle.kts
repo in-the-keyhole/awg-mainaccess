@@ -1,4 +1,4 @@
-import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.yarn.task.YarnTask
 
 description = "awg-mainaccess-web-ui"
 
@@ -9,29 +9,28 @@ plugins {
 
 node {
     download = false
-    fastNpmInstall = true
 }
 
-val lintTask = tasks.register<NpmTask>("npmLint") {
-    dependsOn(tasks.npmInstall)
+val lintTask = tasks.register<YarnTask>("yarnLint") {
+    dependsOn("yarn_install")
 
     args.set(listOf("run", "lint"))
     outputs.upToDateWhen { true }
 }
 
-val cleanTask = tasks.register<NpmTask>("npmClean") {
-    dependsOn(tasks.npmInstall)
+val cleanTask = tasks.register<YarnTask>("yarnClean") {
+    dependsOn("yarn_install")
 
     args.set(listOf("run", "clean"))
     outputs.upToDateWhen { true }
 }
 
-val buildTask = tasks.register<NpmTask>("npmBuild") {
-    dependsOn(tasks.npmInstall)
-    dependsOn(":awg-mainaccess-web-ui-lib:npmBuild");
-    dependsOn(":awg-web-ui-components:npmBuild");
-    dependsOn(":awg-web-ui-styles:npmBuild");
-    dependsOn(":awg-web-services:npmBuild");
+val buildTask = tasks.register<YarnTask>("yarnBuild") {
+    dependsOn("yarn_install")
+    dependsOn(":awg-mainaccess-web-ui-lib:yarnBuild");
+    dependsOn(":awg-web-ui-components:yarnBuild");
+    dependsOn(":awg-web-ui-styles:yarnBuild");
+    dependsOn(":awg-web-services:yarnBuild");
 
     args.set(listOf("run", "build"))
     inputs.files("../../tsconfig.base.json")
@@ -55,5 +54,5 @@ tasks.withType<ProcessResources> {
 }
 
 tasks.named("build") {
-    dependsOn("npmBuild")
+    dependsOn("yarnBuild")
 }

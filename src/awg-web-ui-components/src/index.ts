@@ -1,5 +1,4 @@
-export { AuthProvider } from './lib/auth2/AuthContext';
-export { useAuth } from './lib/auth2/AuthContext';
+export { AuthProvider, type AuthContextType, useAuth } from './lib/auth2/AuthContext';
 export { type OidcAuthProviderConfig } from './lib/auth2/AuthContext';
 export { type MsalAuthProviderConfig } from './lib/auth2/AuthContext';
 export { ProtectedRoute } from './lib/auth2/ProtectedRoute';

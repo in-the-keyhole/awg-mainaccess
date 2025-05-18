@@ -1,5 +1,5 @@
 /// <reference types='vitest' />
-import { isAbsolute } from 'node:path';
+import { isAbsolute, resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
@@ -10,6 +10,11 @@ export default defineConfig({
         react(),
         dts({ entryRoot: 'src' })
     ],
+    resolve: {
+        alias: {
+            "@mui/styled-engine": resolve(__dirname, "../../node_modules/@mui/styled-engine"),
+        }
+    },
     build: {
         target: "esnext",
         emptyOutDir: true,
