@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Day, daysOfWeek, WeeklySchedule } from './weeklySchedule';
+import { Day, daysOfWeek, WeeklySchedule } from './weeklySchedule.ts';
 
 const dayScheduleSchema = z.object({
     enabled: z.boolean(),

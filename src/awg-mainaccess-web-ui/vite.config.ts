@@ -1,7 +1,7 @@
 /// <reference types='vitest' />
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
 import sourcemaps from 'rollup-plugin-sourcemaps2';
 
 export default defineConfig({
@@ -15,10 +15,9 @@ export default defineConfig({
         }
     },
     build: {
+        emptyOutDir: true,
         minify: false,
         sourcemap: true,
-        emptyOutDir: true,
-        target: "ES2020",
         rollupOptions: {
             plugins: [
                 sourcemaps()

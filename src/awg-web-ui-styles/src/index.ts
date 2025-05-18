@@ -1,1 +1,1 @@
-export { muiTheme } from './lib/mui-theme';
+export { muiTheme } from './lib/mui-theme.tsx';

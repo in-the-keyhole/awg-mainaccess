@@ -1,8 +1,8 @@
 /// <reference types='vitest' />
-import { isAbsolute, resolve } from 'node:path'
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import dts from 'vite-plugin-dts'
+import { isAbsolute } from 'node:path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
     root: __dirname,
@@ -11,6 +11,7 @@ export default defineConfig({
         dts({ entryRoot: 'src' })
     ],
     build: {
+        target: "esnext",
         emptyOutDir: true,
         sourcemap: true,
         commonjsOptions: {

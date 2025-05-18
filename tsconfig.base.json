@@ -6,7 +6,7 @@
         "lib": ["ES2020", "DOM"],
         "sourceMap": true,
 
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "esModuleInterop": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -16,6 +16,8 @@
         "noImplicitAny": false,
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
         "strict": true
     },
     "exclude": [

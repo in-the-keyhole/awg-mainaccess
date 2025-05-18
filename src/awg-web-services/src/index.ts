@@ -1,5 +1,5 @@
-export type { AppClient } from './lib/app/app-client';
-export type { Failure, Success } from './lib/app/app-client';
+export type { AppClient } from './lib/app/app-client.tsx';
+export type { Failure, Success } from './lib/app/app-client.tsx';
 export { ServerAppClient } from './lib/app/app-client.mock';
 export type { AuthClient, AuthUser } from './lib/auth/auth-client';
 export { ServerAuthClient } from './lib/auth/auth-client.mock';
