@@ -13,6 +13,15 @@ distributions {
     }
 }
 
+tasks.register<Copy>("distAuth") {
+    val task = project(":awg-mainaccess-auth").tasks.named("jibBuildTar")
+    dependsOn(task)
+
+    from(project(":awg-mainaccess-auth").layout.buildDirectory.get().file("jib-image.tar"))
+    rename { "awg-mainaccess-auth.tar" }
+    into(layout.projectDirectory.dir("dist").dir("images"))
+}
+
 tasks.register<Copy>("distWeb") {
     val task = project(":awg-mainaccess-web").tasks.named("jibBuildTar")
     dependsOn(task)
@@ -32,6 +41,7 @@ tasks.register<Copy>("distChart") {
 }
 
 tasks.register<Copy>("dist") {
+    dependsOn("distAuth")
     dependsOn("distWeb")
     dependsOn("distChart")
 }

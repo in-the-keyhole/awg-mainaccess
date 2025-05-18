@@ -1,6 +1,7 @@
+/// <reference types='vitest' />
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { cjsInterop } from 'vite-plugin-cjs-interop';
 
 export default defineConfig({
     root: __dirname,
@@ -14,27 +15,23 @@ export default defineConfig({
         host: 'localhost',
     },
     plugins: [
-        cjsInterop({
-            dependencies: [
-                '@emotion/styled/base',
-                '@emotion/*',
-            ],
-        }),
         react()
     ],
+    resolve: {
+        alias: {
+            "@mui/styled-engine": resolve(__dirname, "node_modules/@mui/styled-engine"),
+        }
+    },
     build: {
-        target: "es2020",
         minify: false,
         sourcemap: true,
         emptyOutDir: true,
-        reportCompressedSize: true,
-        commonjsOptions: {
-            transformMixedEsModules: true,
-        },
         rollupOptions: {
             output: {
+                format: 'cjs',
+                interop: 'auto',
                 entryFileNames: '[name].js',
-                assetFileNames: '[name][extname]',
+                assetFileNames: '[name][extname]'
             }
         }
     },

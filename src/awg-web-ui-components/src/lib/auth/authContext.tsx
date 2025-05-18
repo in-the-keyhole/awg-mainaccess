@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { AppClient, AuthClient, AuthUser } from '@awg/web-services';
+import { AuthProvider as ReactAuthProvider } from "react-oidc-context";
 
 type AuthContextType = {
     user: AuthUser | null;
