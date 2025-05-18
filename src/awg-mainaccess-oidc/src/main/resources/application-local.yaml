@@ -1,0 +1,9 @@
+server:
+  port: 47741
+  error:
+    whitelabel:
+      enabled: false
+
+logging:
+  level:
+    org.springframework.security: trace

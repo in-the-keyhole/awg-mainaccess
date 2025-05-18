@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: awg-mainaccess-oidc
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          kubernetes: debug

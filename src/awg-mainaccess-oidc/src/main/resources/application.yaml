@@ -1,0 +1,39 @@
+server:
+  forward-headers-strategy: framework
+
+management:
+  endpoint:
+    restart:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  security:
+    user:
+      name: user
+      password: password123
+    oauth2:
+      authorizationserver:
+        client:
+          oidc-client:
+            require-authorization-consent: false
+            registration:
+              client-id: "awg-mainaccess-web"
+              client-secret: "{noop}secret"
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "authorization_code"
+                - "refresh_token"
+              redirect-uris:
+                - "http://127.0.0.1:47740/oidc-client"
+              post-logout-redirect-uris:
+                - "http://127.0.0.1:47740/"
+              scopes:
+                - "openid"
+                - "profile"
