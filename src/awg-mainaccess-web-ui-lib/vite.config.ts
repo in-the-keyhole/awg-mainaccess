@@ -8,13 +8,11 @@ export default defineConfig({
     root: __dirname,
     plugins: [
         react(),
-        dts({
-            entryRoot: 'src',
-            tsconfigPath: resolve(__dirname, 'tsconfig.lib.json')
-        })
+        dts({ entryRoot: 'src' })
     ],
     build: {
         emptyOutDir: true,
+        sourcemap: true,
         commonjsOptions: {
             transformMixedEsModules: true,
         },
@@ -39,7 +37,15 @@ export default defineConfig({
     },
     test: {
         includeSource: [
-            'src/**/*.{js.ts}'
+            "jest.config.ts",
+            "**/*.spec.ts",
+            "**/*.test.ts",
+            "**/*.spec.tsx",
+            "**/*.test.tsx",
+            "**/*.spec.js",
+            "**/*.test.js",
+            "**/*.spec.jsx",
+            "**/*.test.jsx"
         ]
     }
 });

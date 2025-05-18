@@ -6,16 +6,26 @@
         "allowJs": false,
         "esModuleInterop": false,
         "allowSyntheticDefaultImports": true,
-        "strict": true
+        "strict": true,
+        "types": [
+            "vitest/importMeta"
+        ]
     },
-    "files": [],
-    "include": [],
-    "references": [
-        {
-            "path": "./tsconfig.lib.json"
-        },
-        {
-            "path": "./tsconfig.spec.json"
-        }
+    "exclude": [
+        "jest.config.ts",
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.spec.tsx",
+        "**/*.test.tsx",
+        "**/*.spec.js",
+        "**/*.test.js",
+        "**/*.spec.jsx",
+        "**/*.test.jsx"
+    ],
+    "include": [
+        "src/**/*.js",
+        "src/**/*.jsx", 
+        "src/**/*.ts",
+        "src/**/*.tsx"
     ]
 }

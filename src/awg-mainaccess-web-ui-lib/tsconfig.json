@@ -1,25 +1,31 @@
 {
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "outDir": "dist/out-tsc",
         "jsx": "react-jsx",
-        "allowJs": true,
+        "allowJs": false,
         "esModuleInterop": false,
         "allowSyntheticDefaultImports": true,
         "strict": true,
         "types": [
-            "vite/client",
             "vitest/importMeta"
         ]
     },
-    "files": [],
-    "include": [],
-    "references": [
-        {
-            "path": "./tsconfig.lib.json"
-        },
-        {
-            "path": "./tsconfig.spec.json"
-        }
+    "exclude": [
+        "jest.config.ts",
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.spec.tsx",
+        "**/*.test.tsx",
+        "**/*.spec.js",
+        "**/*.test.js",
+        "**/*.spec.jsx",
+        "**/*.test.jsx"
     ],
-    "extends": "../../tsconfig.base.json"
+    "include": [
+        "src/**/*.js",
+        "src/**/*.jsx", 
+        "src/**/*.ts",
+        "src/**/*.tsx"
+    ]
 }

@@ -2,23 +2,41 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "outDir": "dist/out-tsc",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "Preserve",
+        "skipLibCheck": true,
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "verbatimModuleSyntax": true,
+        "moduleDetection": "force",
+        "noEmit": true,
         "jsx": "react-jsx",
-        "allowJs": true,
-        "esModuleInterop": false,
-        "allowSyntheticDefaultImports": true,
         "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "erasableSyntaxOnly": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedSideEffectImports": true,
         "types": [
             "vite/client"
         ]
     },
-    "files": [],
-    "include": [],
-    "references": [
-        {
-            "path": "./tsconfig.app.json"
-        },
-        {
-            "path": "./tsconfig.spec.json"
-        }
+    "exclude": [
+        "jest.config.ts",
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.spec.tsx",
+        "**/*.test.tsx",
+        "**/*.spec.js",
+        "**/*.test.js",
+        "**/*.spec.jsx",
+        "**/*.test.jsx"
+    ],
+    "include": [
+        "src/**/*.js",
+        "src/**/*.jsx", 
+        "src/**/*.ts",
+        "src/**/*.tsx"
     ]
 }

@@ -2,18 +2,10 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import sourcemaps from 'rollup-plugin-sourcemaps2';
 
 export default defineConfig({
     root: __dirname,
-    server: {
-        port: 4200,
-        changeOrigin: true,
-        host: 'localhost',
-    },
-    preview: {
-        port: 4300,
-        host: 'localhost',
-    },
     plugins: [
         react()
     ],
@@ -26,7 +18,11 @@ export default defineConfig({
         minify: false,
         sourcemap: true,
         emptyOutDir: true,
+        target: "ES2020",
         rollupOptions: {
+            plugins: [
+                sourcemaps()
+            ],
             output: {
                 format: 'cjs',
                 interop: 'auto',
@@ -48,6 +44,6 @@ export default defineConfig({
         coverage: {
             reportsDirectory: 'coverage',
             provider: 'v8' as const,
-        },
-    },
+        }
+    }
 });

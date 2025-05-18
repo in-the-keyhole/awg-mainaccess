@@ -32,7 +32,7 @@ val buildTask = tasks.register<NpmTask>("npmBuild") {
 
     args.set(listOf("run", "build"))
     inputs.files("../../tsconfig.base.json")
-    inputs.files("package.json", "package-lock.json", "tsconfig.json", "tsconfig.app.json", "vite.config.ts")
+    inputs.files("package.json", "package-lock.json", "tsconfig.json", "vite.config.ts")
     inputs.files(fileTree("src"))
     inputs.files(fileTree(project(":awg-web-ui-styles").layout.projectDirectory.file("dist")))
     inputs.files(fileTree(project(":awg-web-services").layout.projectDirectory.file("dist")))
