@@ -15,3 +15,6 @@ conf:
         authority: http://localhost:47741/
         clientId: awg-mainaccess-web
         responseType: code
+    apps:
+      - name: Store Master
+        targetUrl: http://localhost:47751/

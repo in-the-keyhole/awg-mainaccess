@@ -1,6 +1,7 @@
 spring:
   application:
     name: awg-mainaccess-web
+
 logging:
   level:
     org:

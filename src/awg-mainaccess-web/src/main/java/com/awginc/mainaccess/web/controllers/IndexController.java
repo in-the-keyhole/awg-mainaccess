@@ -9,7 +9,6 @@ import org.springframework.ui.*;
 @Controller
 public class IndexController {
 
-    
     @GetMapping("/")
     public String view(Model model) {
         model.addAttribute("basePath", ServletUriComponentsBuilder.fromCurrentContextPath().path("/").build().toUriString());

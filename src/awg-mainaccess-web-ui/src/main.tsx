@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route, useNavigate} from 'react-router';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from '@emotion/react';
 import { Loading, AuthProvider, type AuthContextType, useAuth, ProtectedRoute } from '@awg/web-ui-components';

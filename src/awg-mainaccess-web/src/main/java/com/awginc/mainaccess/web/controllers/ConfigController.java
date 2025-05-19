@@ -1,10 +1,10 @@
 package com.awginc.mainaccess.web.controllers;
 
-import com.awginc.mainaccess.web.models.AuthConfigModel;
+import com.awginc.mainaccess.web.config.ConfigProps;
 import com.awginc.mainaccess.web.models.ConfigModel;
-import com.awginc.mainaccess.web.models.OidcAuthConfigModel;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
@@ -13,26 +13,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RestController
 public class ConfigController {
     
-    @Value("${conf.mainaccess.auth.oidc.authority}")
-    private String oidcAuthority;
-
-    @Value("${conf.mainaccess.auth.oidc.clientId}")
-    private String oidcClientId;
-
-    @Value("${conf.mainaccess.auth.oidc.responseType}")
-    private String responseType;
+    @Autowired
+    private ConfigProps config;
 
     @GetMapping("/config")
     public ConfigModel config() {
         return new ConfigModel(
             ServletUriComponentsBuilder.fromCurrentContextPath().path("/").build().toUriString(),
-            new AuthConfigModel(
-                new OidcAuthConfigModel(
-                    oidcAuthority,
-                    oidcClientId,
-                    responseType),
-                null
-            )
+            config.getAuth()
         );
     }
 

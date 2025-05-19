@@ -8,7 +8,6 @@ plugins {
 
 node {
     download = false
-    fastNpmInstall = true
 }
 
 val lintTask = tasks.register<YarnTask>("yarnLint") {
