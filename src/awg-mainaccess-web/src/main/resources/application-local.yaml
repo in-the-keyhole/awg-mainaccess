@@ -4,6 +4,14 @@ server:
     whitelabel:
       enabled: false
 
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:47741/
+          audiences: https://mainaccess.awginc.com
+
 gg:
   jte:
     developmentMode: true
@@ -17,4 +25,10 @@ conf:
         responseType: code
     apps:
       - name: Store Master
+        targetUrl: http://localhost:47751/
+      - name: Example 2
+        targetUrl: http://localhost:47751/
+      - name: Example 3
+        targetUrl: http://localhost:47751/
+      - name: Example 4
         targetUrl: http://localhost:47751/

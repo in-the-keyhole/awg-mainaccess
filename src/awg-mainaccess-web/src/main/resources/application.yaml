@@ -1,18 +1,13 @@
 server:
   forward-headers-strategy: framework
 
-spring:
-  mvc:
-    throw-exception-if-no-handler-found: true
-
 management:
   endpoint:
     restart:
       enabled: true
     health:
-      show-details: always  
+      show-details: always
   endpoints:
-      web:
-        exposure:
-            include: '*'
-
+    web:
+      exposure:
+        include: '*'

@@ -28,14 +28,14 @@ jib {
 
 dependencies {
     implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
-    implementation("org.springframework.boot:spring-boot-starter-actuator:3.4.4")
-    implementation("org.springframework.boot:spring-boot-starter-web:3.4.4") {
+    implementation("org.springframework.boot:spring-boot-starter-actuator:3.4.5")
+    implementation("org.springframework.boot:spring-boot-starter-web:3.4.5") {
         exclude("org.springframework.boot", "spring-boot-starter-tomcat")
     }
-    implementation("org.springframework.boot:spring-boot-starter-jetty")
-    implementation("org.springframework.boot:spring-boot-starter-webflux:3.4.4")
-    implementation(platform("com.azure.spring:spring-cloud-azure-dependencies:5.22.0"))
-    implementation("com.azure.spring:spring-messaging-azure-servicebus:5.22.0")
+    implementation("org.springframework.boot:spring-boot-starter-jetty:3.4.5")
+    implementation("org.springframework.boot:spring-boot-starter-security:3.4.5")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.4.5")
+    implementation("org.springframework.security:spring-security-oauth2-jose:6.4.5");
     implementation("gg.jte:jte-spring-boot-starter-3:3.2.1")
     implementation("gg.jte:jte:3.2.1")
     jteGenerate("gg.jte:jte-models:3.2.1")
