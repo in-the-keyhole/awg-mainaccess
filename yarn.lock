@@ -110,6 +110,7 @@ __metadata:
     "@emotion/react": ^11.14.0
     "@eslint/js": ^9.27.0
     "@mui/material": ^7.1.0
+    "@testing-library/dom": ^10.4.0
     "@testing-library/react": ^16.3.0
     "@types/node": ^22.15.18
     "@types/react": ^19.1.4
@@ -128,6 +129,7 @@ __metadata:
     typescript: ^5.8.3
     typescript-eslint: ^8.32.1
     vite: ^6.3.5
+    vite-plugin-devtools-json: ^0.1.0
     vite-plugin-dts: ^4.5.4
     vite-plugin-externalize-deps: ^0.9.0
     vite-plugin-svgr: ^4.3.0
@@ -148,6 +150,7 @@ __metadata:
     globals: ^16.0.0
     it: ^1.1.1
     jest: ^29.7.0
+    react: ^19.1.0
     react-hook-form: ^7.56.3
     tslib: ^2.8.1
     typescript: ~5.8.3
@@ -8560,6 +8563,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"uuid@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "uuid@npm:11.1.0"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 840f19758543c4631e58a29439e51b5b669d5f34b4dd2700b6a1d15c5708c7a6e0c3e2c8c4a2eae761a3a7caa7e9884d00c86c02622ba91137bd3deade6b4b4a
+  languageName: node
+  linkType: hard
+
 "v8-to-istanbul@npm:^9.0.1":
   version: 9.3.0
   resolution: "v8-to-istanbul@npm:9.3.0"
@@ -8611,6 +8623,17 @@ __metadata:
   peerDependencies:
     vite: 4 || 5 || 6
   checksum: 860caec9e8d563473b2b78944016f20f2e12d7d3e089941756a2c87c42ba9cc5d8c8ce930a1d49f6220cc62db8b9c76c1a671780e5a459458504874584d851ca
+  languageName: node
+  linkType: hard
+
+"vite-plugin-devtools-json@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "vite-plugin-devtools-json@npm:0.1.0"
+  dependencies:
+    uuid: ^11.1.0
+  peerDependencies:
+    vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+  checksum: 7d536bc9c17454f932287e023ac6708efef404c62dabee70f1b7f0e6abc65d57aad8519908a79b4176dd6381dea91a9e364435a340040244994888c3ebdd8423
   languageName: node
   linkType: hard
 

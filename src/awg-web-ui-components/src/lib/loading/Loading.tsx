@@ -1,6 +1,10 @@
 import './Loading.css';
 
-export function Loading() {
+export function Loading({
+    message
+} : {
+    message?: string
+}) {
     return (
         <div className="loading">
             <svg className="pl" width="240" height="240" viewBox="0 0 240 240">

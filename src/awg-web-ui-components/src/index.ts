@@ -1,6 +1,6 @@
-export { AuthProvider, type AuthContextType, useAuth } from './lib/auth2/AuthContext';
-export { type OidcAuthProviderConfig } from './lib/auth2/AuthContext';
-export { type MsalAuthProviderConfig } from './lib/auth2/AuthContext';
+export { AuthProvider, type AuthContextType, useAuth } from './lib/auth2/AuthContext.tsx';
+export { type OidcAuthProviderConfig } from './lib/auth2/OidcAuthProvider.tsx';
+export { type MsalAuthProviderConfig } from './lib/auth2/MsalAuthProvider.tsx';
 export { ProtectedRoute } from './lib/auth2/ProtectedRoute';
 // export { withAuthGuard } from './lib/auth/withAuthGuard';
 export type { NavigationDestination } from './lib/Breadcrumbs/Breadcrumbs';

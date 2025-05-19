@@ -14,26 +14,24 @@ management:
 
 spring:
   security:
-    user:
-      name: user
-      password: password123
     oauth2:
       authorizationserver:
         client:
-          oidc-client:
+          awg-mainaccess-web:
             require-authorization-consent: false
             registration:
               client-id: "awg-mainaccess-web"
               client-secret: "{noop}secret"
               client-authentication-methods:
-                - "client_secret_basic"
+                - "none"
               authorization-grant-types:
                 - "authorization_code"
                 - "refresh_token"
               redirect-uris:
-                - "http://127.0.0.1:47740/oidc-client"
+                - "http://localhost:47740/oidc-callback"
               post-logout-redirect-uris:
-                - "http://127.0.0.1:47740/"
+                - "http://localhost:47740/oidc-signout-callback"
               scopes:
                 - "openid"
                 - "profile"
+                - "email"

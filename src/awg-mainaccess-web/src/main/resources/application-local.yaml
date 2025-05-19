@@ -12,5 +12,6 @@ conf:
   mainaccess:
     auth:
       oidc:
-        authority: http://http://localhost:47741/
+        authority: http://localhost:47741/
         clientId: awg-mainaccess-web
+        responseType: code

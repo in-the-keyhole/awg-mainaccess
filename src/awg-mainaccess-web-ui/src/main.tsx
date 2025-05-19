@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, useHref } from 'react-router';
+import {BrowserRouter, Routes, Route, useNavigate} from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from '@emotion/react';
 import { Loading, AuthProvider, type AuthContextType, useAuth, ProtectedRoute } from '@awg/web-ui-components';
@@ -8,14 +8,29 @@ import { muiTheme } from '@awg/web-ui-styles';
 import '@awg/web-ui-components/index.css';
 import '@awg/mainaccess-web-ui-lib/index.css';
 
-import { ConfigProvider, type ConfigContextType, useConfig } from './config/ConfigContext';
-import App from './App/App';
-import { Forbidden } from './Pages/Forbidden';
-import { Unauthorized } from './Pages/Unauthorized';
-import { NotFound } from './Pages/NotFound';
+import { ConfigProvider, type ConfigContextType, useConfig } from './config.tsx';
+import App from './App/App.tsx';
+import { Forbidden } from './Pages/Forbidden.tsx';
+import { Unauthorized } from './Pages/Unauthorized.tsx';
+import { NotFound } from './Pages/NotFound.tsx';
+
+/**
+ * Page to show when a user is not authorized.
+ * @param auth
+ * @param children
+ * @constructor
+ */
+const UnauthorizedPage = ({
+    auth
+} : {
+    auth: AuthContextType
+}) => {
+    return (
+        <Unauthorized onSignIn={async returnUrl => await auth.signIn(returnUrl)} />
+    );
+};
 
 const Body = ({
-    config,
     auth
 } : {
     config: ConfigContextType,
@@ -24,14 +39,12 @@ const Body = ({
     return (
         <Routes>
             <Route index element={
-                <ProtectedRoute forbidden={<Forbidden />} unauthorized={<Unauthorized />}>
+                <ProtectedRoute forbidden={<Forbidden />} unauthorized={<UnauthorizedPage auth={auth} />}>
                     <App />
                 </ProtectedRoute>
             } />
             <Route path="*" element={
-                <ProtectedRoute forbidden={<Forbidden />} unauthorized={<Unauthorized />}>
-                    <NotFound />
-                </ProtectedRoute>
+                <NotFound />
             } />
         </Routes>
     );
@@ -63,23 +76,28 @@ const WithRouter = ({
 } : {
     config: ConfigContextType
 }) => {
-    const basename = useHref('/');
-    if (basename) {
-        return (
-            <ThemeProvider theme={muiTheme}>
-                <AuthProvider oidc={config.auth.oidc} msal={config.auth.msal} baseUri={basename}>
-                    <WithAuth config={config} />
-                </AuthProvider>
-            </ThemeProvider>
-        );
-    } else {
-        throw new Error("Missing basename.");
-    }
+    const navigate = useNavigate();
+
+    /**
+     * Invoked when the authentication provider completes an authentication action and must return to a location.
+     * @param url
+     */
+    const onNavigate = (url: string) => {
+        navigate(url);
+    };
+
+    return (
+        <ThemeProvider theme={muiTheme}>
+            <AuthProvider oidc={config.auth.oidc} msal={config.auth.msal} baseUri={config.baseUri} onNavigate={onNavigate} loadingElement={<Loading />}>
+                <WithAuth config={config} />
+            </AuthProvider>
+        </ThemeProvider>
+    );
 }
 
 /**
  * Adds components that require the configuration context to be present.
- * @returns 
+ * @returns
  */
 const WithConfig = () => {
     const config = useConfig();

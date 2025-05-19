@@ -1,7 +1,7 @@
 rootProject.name = "awg-mainaccess"
 
 include(":awg-mainaccess-chart")
-include(":awg-mainaccess-oidc")
+include(":awg-mainaccess-idp")
 include(":awg-mainaccess-web")
 include(":awg-mainaccess-web-ui")
 include(":awg-mainaccess-web-ui-lib")
@@ -10,7 +10,7 @@ include(":awg-web-ui-styles")
 include(":awg-web-services")
 
 project(":awg-mainaccess-chart").projectDir = file("src/awg-mainaccess-chart")
-project(":awg-mainaccess-oidc").projectDir = file("src/awg-mainaccess-oidc")
+project(":awg-mainaccess-idp").projectDir = file("src/awg-mainaccess-idp")
 project(":awg-mainaccess-web").projectDir = file("src/awg-mainaccess-web")
 project(":awg-mainaccess-web-ui").projectDir = file("src/awg-mainaccess-web-ui")
 project(":awg-mainaccess-web-ui-lib").projectDir = file("src/awg-mainaccess-web-ui-lib")

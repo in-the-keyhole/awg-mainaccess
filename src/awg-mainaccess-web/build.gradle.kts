@@ -41,6 +41,9 @@ dependencies {
     jteGenerate("gg.jte:jte-models:3.2.1")
 
     implementation(project(":awg-mainaccess-web-ui"))
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.12.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.12.2")
 }
 
 jte {
@@ -55,4 +58,8 @@ tasks.withType<com.google.cloud.tools.jib.gradle.JibTask>().configureEach {
 
 tasks.named<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
     args("--spring.profiles.active=local")
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import styles from './MainAccessPage.module.scss';
+import { useLocation } from 'react-router';
 
 const applications = [
     { name: 'Store Master', destination: '/store-master' },
@@ -21,7 +22,7 @@ export function MainAccessPage() {
 
     return (
         <div className={styles['main-page']}>
-            <AwgBrandedHeader title="AWG Main Access" onLogout={auth.signout} userName={auth.user?.name ?? ''} />
+            <AwgBrandedHeader title="AWG Main Access" onLogout={() => auth.signOut("/")} userName={auth.user?.name ?? auth.user?.email ?? auth.user?.sub ?? ''} />
             <Box className={styles.content}>
                 <Typography variant="h4" component="h2" align="left" gutterBottom>
                     Applications

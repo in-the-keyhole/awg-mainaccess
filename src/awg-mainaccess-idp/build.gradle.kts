@@ -1,4 +1,4 @@
-description = "awg-mainaccess-oidc"
+description = "awg-mainaccess-idp"
 
 plugins {
     id("java")
@@ -20,7 +20,7 @@ jib {
         format = com.google.cloud.tools.jib.api.buildplan.ImageFormat.OCI
     }
     to {
-        image = "awg-mainaccess-oidc"
+        image = "awg-mainaccess-idp"
         tags = setOf(project.version.toString().replace("+", "_"))
     }
 }

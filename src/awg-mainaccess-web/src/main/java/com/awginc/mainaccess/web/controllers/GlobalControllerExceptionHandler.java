@@ -11,7 +11,7 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 @Order(-1)
 public class GlobalControllerExceptionHandler {
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(NoResourceFoundException.class)
     public String handle404(NoResourceFoundException ex) {
         return "forward:/";

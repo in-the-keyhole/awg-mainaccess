@@ -1,6 +1,6 @@
 spring:
   application:
-    name: awg-mainaccess-oidc
+    name: awg-mainaccess-idp
 
 logging:
   level:
